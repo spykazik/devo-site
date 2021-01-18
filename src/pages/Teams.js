@@ -53,6 +53,7 @@ const Block = styled.div`
     height: 220px;
     border-radius: 34px;
     margin: 17.5px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 
 `
 
@@ -73,6 +74,24 @@ const HeaderWrapper = styled.div`
 const BottomSection= styled.div`
     left: 21px;
     bottom: 21px;
+    display: flex;
+    justify-content: space-between;
+
+    padding-left: 21px;
+    padding-bottom: 21px;
+`
+
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+`
+
+const H2 = styled.h2`
+    margin-left: 110px;
+    margin-top: 21px;
+
 `
 
 const Teams = () => {
@@ -84,17 +103,19 @@ const Teams = () => {
             <HeroContainer>
                 {teamsData.map((item, index) => (
                     <Block key={index} style={{backgroundColor: item.color}} >
-                        <h2 key={index} >
-                        {item.name}
-                        </h2>
-                        <BottomSection>
-                            <h2 key={index} >
+                        <Content>
+                            <H2 key={index} >
                             {item.project}
-                            </h2>
-                            <h2 key={index} >
-                            {item.members}
-                            </h2>
-                        </BottomSection>
+                            </H2>
+                            <BottomSection>
+                                <h2 key={index} >
+                                {item.name}
+                                </h2>
+                                <h2 key={index} >
+                                {item.members}
+                                </h2>
+                            </BottomSection>
+                        </Content>
                     </Block>  
                 ))}
             </HeroContainer>
